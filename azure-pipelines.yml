@@ -1,0 +1,34 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu@2
+
+steps:
+- checkout: self
+
+# Build DVWA image
+- script: |
+    docker build -t dvwa .
+  displayName: "Build DVWA Docker Image"
+
+# Run DVWA
+- script: |
+    docker run -d -p 8080:80 --name dvwa dvwa
+    sleep 30
+  displayName: "Run DVWA Container"
+
+# Verify DVWA is running
+- script: |
+    curl -I http://localhost:8080
+  displayName: "Verify DVWA is Up"
+
+# Show running containers
+- script: |
+    docker ps
+  displayName: "List Running Containers"
