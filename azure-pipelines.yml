@@ -7,7 +7,10 @@ trigger:
 - azure-pipelines.yml
 
 pool:
-  vmImage: ubuntu@2
+  pool:
+  name: Default
+  demands:
+    - Agent.Name -equals HPV
 
 steps:
 - checkout: self
