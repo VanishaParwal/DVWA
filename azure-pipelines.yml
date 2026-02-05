@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- azure-pipelines.yml
 
 pool:
   vmImage: ubuntu@2
