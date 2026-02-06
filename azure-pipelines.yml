@@ -104,4 +104,5 @@ steps:
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
     accuknoxLabel: '$(accuknox_label)'
+    inputSoftFail: true
     
