@@ -2,6 +2,7 @@
 
 
 
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -56,6 +57,12 @@ steps:
   inputs:
     imageName: 'dvwa'
     tag: 'latest'
+    accuknoxEndpoint: '$(accuknox_endpoint)'
+    accuknoxToken: '$(azure_token)'
+    accuknoxLabel: '$(accuknox_label)'
+    inputSoftFail: true
+- task: accuknox-secret-scan@2
+  inputs:
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
     accuknoxLabel: '$(accuknox_label)'
