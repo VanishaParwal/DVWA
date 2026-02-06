@@ -67,3 +67,11 @@ steps:
     accuknoxToken: '$(azure_token)'
     accuknoxLabel: '$(accuknox_label)'
     inputSoftFail: true
+- task: AccuKnox-DAST@2
+  inputs:
+    targetURL: 'http://localhost:8080'
+    maxScanDurationInMins: '2'
+    accuknoxEndpoint: '$(accuknox_endpoint)'
+    accuknoxToken: '$(azure_token)'
+    accuknoxLabel: '$(accuknox_label)'
+    
