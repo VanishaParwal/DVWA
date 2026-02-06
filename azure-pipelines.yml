@@ -1,4 +1,5 @@
 # Starter pipeline
+
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -35,3 +36,9 @@ steps:
 - script: |
     docker ps
   displayName: "List Running Containers"
+- task: AccuKnox-SAST@3
+  inputs:
+    accuknoxEndpoint: 'cspm.demo.accuknox.com'
+    accuknoxToken: '$(azure_token)'
+    accuknoxLabel: 'azaspm'
+    softFail: true
