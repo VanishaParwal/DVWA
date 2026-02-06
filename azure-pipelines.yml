@@ -55,6 +55,7 @@ steps:
 - task: AccuKnox-Container-Scan@2
   inputs:
     imageName: 'dvwa'
+    tag: 'latest'
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
     accuknoxLabel: '$(accuknox_label)'
