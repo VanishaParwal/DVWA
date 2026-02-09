@@ -68,3 +68,10 @@ steps:
     accuknoxLabel: '$(accuknox_label)'
     inputSoftFail: true
 
+- task: AccuKnox-DAST@2
+  inputs:
+    targetURL: http://testhtml5.vulnweb.com
+    scanType: full
+    accuknoxEndpoint: $(accuknox_endpoint)
+    accuknoxToken: $(azure_token)
+    accuknoxLabel: $(accuknox_label)
