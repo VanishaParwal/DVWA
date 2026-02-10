@@ -1,33 +1,38 @@
-# Starter pipeline
-
-
-
-
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - azure-pipelines.yml
 
+# FIX 1: Corrected Pool syntax
 pool:
-  pool:
   name: Default
   demands:
     - Agent.Name -equals HPV
 
+# FIX 2: Variables moved to the top level
+variables:
+  - name: imageRepository
+    value: azuredevopstest
+  - name: imageTag
+    value: v1
+
 steps:
 - checkout: self
 
-# Build DVWA image
-- script: docker build -t dvwa .
-  displayName: 'Run a one-line script'
-- task: AccuKnox-Container-Scan@2
+# Build Step
+- task: Docker@2
+  displayName: "Build Docker Image"
   inputs:
-    imageName: 'dvwa'
-    tag: 'latest'
+    command: build
+    Dockerfile: "**/Dockerfile"
+    repository: "$(imageRepository)"
+    tags: '$(imageTag)'
+
+# FIX 3: Scan Step now uses the SAME variables as the build
+- task: AccuKnox-Container-Scan@2
+  displayName: "AccuKnox Container Scan"
+  inputs:
+    imageName: '$(imageRepository)' # Changed from 'dvwa' to match your build
+    tag: '$(imageTag)'              # Changed from 'latest' to match 'v1'
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
     accuknoxLabel: '$(accuknox_label)'
     inputSoftFail: true
-
