@@ -20,6 +20,8 @@ steps:
 - checkout: self
 
 # Build DVWA image
+- script: docker build -t dvwa .
+  displayName: 'Run a one-line script'
 - task: AccuKnox-SAST@3
   inputs:
     accuknoxEndpoint: 'cspm.demo.accuknox.com'
