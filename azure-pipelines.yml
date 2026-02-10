@@ -22,10 +22,12 @@ steps:
 # Build DVWA image
 - script: docker build -t dvwa .
   displayName: 'Run a one-line script'
-- task: AccuKnox-SAST@3
+- task: AccuKnox-Container-Scan@2
   inputs:
-    accuknoxEndpoint: 'cspm.demo.accuknox.com'
+    imageName: 'dvwa'
+    tag: 'latest'
+    accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
-    accuknoxLabel: 'azaspm'
-    softFail: true
+    accuknoxLabel: '$(accuknox_label)'
+    inputSoftFail: true
 
