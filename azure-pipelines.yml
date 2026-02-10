@@ -11,7 +11,7 @@ steps:
 - checkout: self
 
 
-- task: accuknox-iac@2
+- task: accuknox-secret-scan@2
   inputs:
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
