@@ -29,32 +29,3 @@ steps:
     accuknoxLabel: 'azaspm'
     softFail: true
 
-- task: accuknox-iac@2
-  inputs:
-    accuknoxEndpoint: '$(accuknox_endpoint)'
-    accuknoxToken: '$(azure_token)'
-    accuknoxLabel: '$(accuknox_label)'
-    inputSoftFail: true
-
-- task: AccuKnox-Container-Scan@2
-  inputs:
-    imageName: 'dvwa'
-    tag: 'latest'
-    accuknoxEndpoint: '$(accuknox_endpoint)'
-    accuknoxToken: '$(azure_token)'
-    accuknoxLabel: '$(accuknox_label)'
-    inputSoftFail: true
-- task: accuknox-secret-scan@2
-  inputs:
-    accuknoxEndpoint: '$(accuknox_endpoint)'
-    accuknoxToken: '$(azure_token)'
-    accuknoxLabel: '$(accuknox_label)'
-    inputSoftFail: true
-
-- task: AccuKnox-DAST@2
-  inputs:
-    targetURL: http://testhtml5.vulnweb.com
-    scanType: full
-    accuknoxEndpoint: $(accuknox_endpoint)
-    accuknoxToken: $(azure_token)
-    accuknoxLabel: $(accuknox_label)
