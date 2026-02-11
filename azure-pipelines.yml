@@ -1,0 +1,27 @@
+trigger:
+- azure-pipelines.yml
+
+# FIX 1: Corrected Pool syntax
+pool:
+  name: Default
+  demands:
+    - Agent.Name -equals HPV
+
+steps:
+- checkout: self
+- task: Docker@2
+  displayName: "Push DVWA to Docker Hub"
+  inputs:
+    containerRegistry: 'azdocker'
+    repository: 'vanishaparwal/dvwa-test'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: 'latest'
+
+
+- task: accuknox-secret-scan@2
+  inputs:
+    accuknoxEndpoint: '$(accuknox_endpoint)'
+    accuknoxToken: '$(azure_token)'
+    accuknoxLabel: '$(accuknox_label)'
+    inputSoftFail: true
