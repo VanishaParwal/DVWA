@@ -9,6 +9,14 @@ pool:
 
 steps:
 - checkout: self
+- task: Docker@2
+  displayName: "Push DVWA to Docker Hub"
+  inputs:
+    containerRegistry: 'azdocker'
+    repository: 'vanishaparwal/dvwa-test'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: 'latest'
 
 
 - task: accuknox-secret-scan@2
