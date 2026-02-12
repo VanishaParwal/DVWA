@@ -19,8 +19,7 @@ jobs:
       # This builds the 'local' image from the file you just created
       - name: Build local image
         run: |
-          docker build -t vanisha-test-image:latest .
-
+          docker build -t vanisha-test-image:latest -f Dockerfile .
       - name: Run AccuKnox Container Scanner
         uses: Vickydew1/container-scan-action@Docker
         with:
@@ -33,5 +32,5 @@ jobs:
           severity: "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
           soft_fail: true
           upload_results: true
-          generate_sbom: true
+          generate_sbom: true 
           project_name: "vanisha-test"
