@@ -29,7 +29,7 @@ jobs:
           
           # POINTING TO YOUR SPECIFIC SUBDIRECTORY
           # This tells the scanner the Dockerfile is at vulnerabilities/Dockerfile
-          dockerfile_context: "vulnerabilities/" 
+          dockerfile_context: "." 
           
           severity: "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
           soft_fail: true
