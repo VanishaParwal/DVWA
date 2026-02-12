@@ -14,19 +14,24 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4.0.0
+        uses: actions/checkout@v4
+
+      # This builds the 'local' image from the file you just created
+      - name: Build local image
+        run: |
+          docker build -t vanisha-test-image:latest .
 
       - name: Run AccuKnox Container Scanner
-        uses: Vickydew1/container-scan-action@Fixes
-      
+        uses: Vickydew1/container-scan-action@Docker
         with:
           accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
           accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
           accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          image_name: "nginx"
+          image_name: "vanisha-test-image"
           tag: "latest"
+          dockerfile_context: "." # Points to your new local Dockerfile
           severity: "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
           soft_fail: true
           upload_results: true
           generate_sbom: true
-          project_name: "Project Test"
+          project_name: "vanisha-test"
