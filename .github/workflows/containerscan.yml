@@ -3,7 +3,7 @@ name: AccuKnox Container Scan Workflow
 on:
   push:
     branches:
-      - master
+      - master  # Updated to master to match your DVWA repo branch
   pull_request:
     branches:
       - master
@@ -16,21 +16,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # This builds the 'local' image from the file you just created
-      - name: Build local image
-        run: |
-          docker build -t vanisha-test-image:latest -f Dockerfile .
       - name: Run AccuKnox Container Scanner
         uses: Vickydew1/container-scan-action@Docker
         with:
           accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
           accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
           accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          image_name: "vanisha-test-image"
+          
+          # Changed to reflect the actual image you are auditing
+          image_name: "dvwa"
           tag: "latest"
-          dockerfile_context: "." # Points to your new local Dockerfile
+          
+          # POINTING TO YOUR SPECIFIC SUBDIRECTORY
+          # This tells the scanner the Dockerfile is at vulnerabilities/Dockerfile
+          dockerfile_context: "vulnerabilities/" 
+          
           severity: "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
           soft_fail: true
           upload_results: true
-          generate_sbom: true 
+          generate_sbom: true
           project_name: "vanisha-test"
