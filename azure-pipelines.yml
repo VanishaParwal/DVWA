@@ -11,8 +11,8 @@ steps:
 - checkout: self
 - task: AccuKnox-Container-Scan@2
   inputs:
-    imageName: 'azuredevopstest'
-    tag: 'v1'
+    imageName: 'nginx'
+    tag: 'latest'
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
     accuknoxLabel: '$(accuknox_label)'
