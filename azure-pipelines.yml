@@ -1,7 +1,6 @@
 trigger:
 - azure-pipelines.yml
 
-# FIX 1: Corrected Pool syntax
 pool:
   name: Default
   demands:
@@ -19,8 +18,9 @@ steps:
     tags: 'latest'
 
 
-- task: accuknox-secret-scan@2
+- task: AccuKnox-Container-Scan@2
   inputs:
+    imageName: 'dvwa-test'
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
     accuknoxLabel: '$(accuknox_label)'
