@@ -24,7 +24,7 @@ jobs:
           accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
           
           # Changed to reflect the actual image you are auditing
-          image_name: "dvwa"
+          image_name: "nginx"
           tag: "latest"
           
           # POINTING TO YOUR SPECIFIC SUBDIRECTORY
