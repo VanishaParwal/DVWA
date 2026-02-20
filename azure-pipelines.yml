@@ -12,7 +12,7 @@ steps:
   inputs:
     sonarQubeUrl: 'https://sq.accuknox.com'
     sonarQubeToken: 'squ_29c3f471b378429f634063e21c857638fca9f869'
-    sonarQubeProjectKey: 'parwal'
+    sonarQubeProjectKey: 'vanisha1'
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
     accuknoxLabel: '$(accuknox_label)'
