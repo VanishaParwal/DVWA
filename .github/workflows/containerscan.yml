@@ -1,9 +1,9 @@
-name: AccuKnox Container Scan Workflow
+name: AccuKnox Container Scan
 
 on:
   push:
     branches:
-      - master  # Updated to master to match your DVWA repo branch
+      - master
   pull_request:
     branches:
       - master
@@ -11,28 +11,22 @@ on:
 jobs:
   container-scan:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Run AccuKnox Container Scanner
-        uses: Vickydew1/container-scan-action@Docker
+        uses: accuknox/container-scan-action@latest
+      
         with:
           accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
           accuknox_label: ${{ secrets.ACCUKNOX_LABEL }}
           accuknox_endpoint: ${{ secrets.ACCUKNOX_ENDPOINT }}
-          
-          # Changed to reflect the actual image you are auditing
           image_name: "nginx"
           tag: "latest"
-          
-          # POINTING TO YOUR SPECIFIC SUBDIRECTORY
-          # This tells the scanner the Dockerfile is at vulnerabilities/Dockerfile
-          dockerfile_context: "." 
-          
           severity: "UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL"
           soft_fail: true
-          upload_results: true
-          generate_sbom: true
-          project_name: "vanisha-test"
+          upload_results: true  # (Optional) set true if you want to upload result to Github artefact
+          generate_sbom: true   # (Optional) set true to generate SBOM
+          project_name: ""      # (Optional) must match the project name created in the dashboard
+          dockerfile_context: .  # (Optional) Path to Dockerfile for building image before scan 
