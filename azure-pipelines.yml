@@ -10,9 +10,9 @@ steps:
 - checkout: self
 - task: accuknox-sq-sast@2
   inputs:
-    sonarQubeUrl: 'https://sq.accuknox.com/tutorials?id=vanisha123'
+    sonarQubeUrl: 'https://sq.accuknox.com/api/project_badges/measure?project=parwal&metric=alert_status&token=sqb_3ec5006be95df38a2ca6d23794a693b4299802de'
     sonarQubeToken: 'squ_29c3f471b378429f634063e21c857638fca9f869'
-    sonarQubeProjectKey: 'vanisha123'
+    sonarQubeProjectKey: 'parwal'
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
     accuknoxLabel: '$(accuknox_label)'
