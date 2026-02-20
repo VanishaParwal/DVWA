@@ -10,9 +10,9 @@ steps:
 - checkout: self
 - task: accuknox-sq-sast@2
   inputs:
-    sonarQubeUrl: 'https://sq.accuknox.com/tutorials?id=vanisha1'
+    sonarQubeUrl: 'https://sq.accuknox.com/tutorials?id=vanisha123'
     sonarQubeToken: 'squ_29c3f471b378429f634063e21c857638fca9f869'
-    sonarQubeProjectKey: 'vanisha1'
+    sonarQubeProjectKey: 'vanisha123'
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
     accuknoxLabel: '$(accuknox_label)'
