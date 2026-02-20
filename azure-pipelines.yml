@@ -1,5 +1,4 @@
 trigger:
-
 - azure-pipelines.yml
 
 pool:
@@ -9,11 +8,12 @@ pool:
 
 steps:
 - checkout: self
-- task: AccuKnox-Container-Scan@2
+- task: accuknox-sq-sast@2
   inputs:
-    imageName: 'nginx'
-    tag: 'latest'
+    sonarQubeUrl: 'https://sq.accuknox.com/tutorials?id=vanisha1'
+    sonarQubeToken: 'squ_29c3f471b378429f634063e21c857638fca9f869'
+    sonarQubeProjectKey: 'vanisha12'
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
     accuknoxLabel: '$(accuknox_label)'
-    inputSoftFail: true
+    skipSonarQubeScan: false
