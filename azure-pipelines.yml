@@ -10,8 +10,8 @@ steps:
 - checkout: self
 - task: accuknox-sq-sast@2
   inputs:
-    sonarQubeUrl: 'https://sonarcloud.io'
-    sonarQubeToken: 'squ_29c3f471b378429f634063e21c857638fca9f869'
+    sonarQubeUrl: 'https://sq.accuknox.com/'
+    sonarQubeToken: 'sqa_62b23ac25e628cb9db5bcad693e0a229e12b34f0'
     sonarQubeProjectKey: 'vp'
     accuknoxEndpoint: '$(accuknox_endpoint)'
     accuknoxToken: '$(azure_token)'
