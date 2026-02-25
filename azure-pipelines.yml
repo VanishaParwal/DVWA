@@ -8,17 +8,9 @@ pool:
 
 steps:
 - checkout: self
-- script: |
-    echo "--- Checking Docker Version ---"
-    docker --version
-    echo "--- Checking Docker Socket Permissions ---"
-    ls -l /var/run/docker.sock
-    echo "--- Checking Current User ---"
-    whoami
-  displayName: 'Debug Docker Environment'
 - task: accuknox-sq-sast@2
   inputs:
-    sonarQubeUrl: 'https://sq.accuknox.com'
+    sonarQubeUrl: 'https://sonarcloud.io'
     sonarQubeToken: 'squ_29c3f471b378429f634063e21c857638fca9f869'
     sonarQubeProjectKey: 'vp'
     accuknoxEndpoint: '$(accuknox_endpoint)'
