@@ -9,12 +9,11 @@ pool:
 
 steps:
 - checkout: self
-- task: AccuKnox-Code-Analysis@2
+- task: AccuKnox-xBOM@2
   inputs:
-    scanType: 'sast, sca, secret, iac, sbom'
-- task: AccuKnox-Code-Analysis@2
-  inputs:
+    bomType: 'sbom'
     accuknoxEndpoint: 'cspm.demo.accuknox.com'
     accuknoxToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzkyMjIyODU0LCJqdGkiOiIwYzI5Y2NkYzZlM2Y0M2EwOTQ4YzQ5MTY2NWI0YmNjZSIsInRlbmFudC1pZCI6MzczMCwiaXNzIjoiY3NwbS5kZW1vLmFjY3Vrbm94LmNvbSJ9.AgV3xetv7_ARluWB4YMBoy1kpxPDnBLj7EC4VE47Fn48Lmf7YOiRLtETC_s40IY2f-R6TdNCARUMulrZ91-y1i9IR7cF5LjYz10hINS7YDRI9rn4XaSKpinkaO8NsfNGH_72EG1OW0N7aIQ4yasVDVmkL5MONoYx-miA4tU_aCV9DkJdVyyGlg_oKkahDnEChENnaeOv0M2Xq_e-3o_xrKgKOyavUj6L1OioJiuXHG88UwUz4Xn6M6_9jKDbiFGf9e0RNFwjA_y9hfLnqMgk4Xz-PltwKIk1yDXiQxTfiUEHO9a-I0M9tFktXdLeLGLj5wpewTuvo9boEyReuoH6Hw'
     accuknoxLabel: 'azuretest'
-    sbomProjectName: 'v-test'
+    projectName: 'v-test'
+    projectClassifier: 'application'
