@@ -12,7 +12,7 @@ function CheckCaptcha($key, $response) {
 		$url = 'https://www.google.com/recaptcha/api/siteverify';
 		$dat = array(
 			'secret'   => $key,
-			'response' => urlencode($response),
+			'response' => urlencode(
 			'remoteip' => urlencode($_SERVER['REMOTE_ADDR'])
 		);
 
