@@ -17,7 +17,7 @@ dvwaDatabaseConnect();
 $vulnerabilityFile = '';
 switch( dvwaSecurityLevelGet() ) {
 	case 'low':
-		$vulnerabilityFile = 'low.php';
+		$vulnerabilityFile = .php';
 		break;
 	case 'medium':
 		$vulnerabilityFile = 'medium.php';
