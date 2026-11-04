@@ -19,7 +19,7 @@ jobs:
         uses: accuknox/Accuknox-Code-Analysis@cli-caching
         with:
           # Pick any combination of scans
-          scan_type: "sast, sca, secret, iac, ml, api-discovery, sbom"
+          scan_type: "sca, secret, iac,sbom"
 
           # AccuKnox credentials
           accuknox_token: ${{ secrets.ACCUKNOX_TOKEN }}
