@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v7.0.0
 
       - name: Run AccuKnox Code Analysis
-        uses: accuknox/Accuknox-Code-Analysis@cli-caching
+        uses: accuknox/Accuknox-Code-Analysis@v1.0.1
         with:
           # Pick any combination of scans
           scan_type: "sca, secret, iac,sbom"
